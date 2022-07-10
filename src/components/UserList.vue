@@ -21,26 +21,19 @@
 <script>
 // @ is an alias to /src
 import SingleUser from '@/components/SingleUser.vue'
-import UserService from '@/services/UserService.js'
 
 export default {
   name: 'UserList',
   components: {
     SingleUser
   },
-  data() {
-    return {
-      users: null
-    }
-  },
   created() {
-    UserService.getUsers()
-    .then(response => {
-      this.users = response.data
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    this.$store.dispatch('fetchUsers')
+  },
+  computed: {
+    users() {
+      return this.$store.state.users
+    }
   }
 }
 </script>
