@@ -21,7 +21,7 @@
 <script>
 // @ is an alias to /src
 import SingleUser from '@/components/SingleUser.vue'
-import axios from 'axios'
+import UserService from '@/services/UserService.js'
 
 export default {
   name: 'UserList',
@@ -34,7 +34,7 @@ export default {
     }
   },
   created() {
-    axios.get('http://localhost:3000/users')
+    UserService.getUsers()
     .then(response => {
       this.users = response.data
     })
