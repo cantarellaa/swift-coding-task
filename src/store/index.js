@@ -22,16 +22,16 @@ export default createStore({
             commit('ADD_USER', user)
           })
           .catch(function (error) {
-            console.log(error)
+            throw(error)
           })
     },
     fetchUsers({ commit }) {
-      UserService.getUsers()
+     return UserService.getUsers()
           .then(response => {
             commit('SET_USERS', response.data)
           })
           .catch(error => {
-            console.log(error)
+            throw(error)
           })
     }
   },

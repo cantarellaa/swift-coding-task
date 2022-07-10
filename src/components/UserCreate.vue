@@ -77,6 +77,12 @@
           id: uuidv4()
         }
         this.$store.dispatch('createUser', user)
+          .then(() => {
+            alert("User created successfully!")
+          })
+        .catch(error => {
+          alert(error)
+        })
       }
     }
   }

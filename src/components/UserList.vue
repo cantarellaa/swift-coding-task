@@ -29,6 +29,9 @@ export default {
   },
   created() {
     this.$store.dispatch('fetchUsers')
+      .catch(error => {
+        alert(error)
+      })
   },
   computed: {
     users() {
