@@ -14,9 +14,10 @@
           <th @click="sort('email')">E-mail</th>
           <th @click="sort('quantity')">Quantity</th>
           <th @click="sort('price')">Price</th>
+          <th>Delete</th>
         </tr>
         </thead>
-        <SingleUser v-for="user in sortedUsers" :key="user.id" :user="user" />
+        <SingleUser v-for="user in sortedUsers" :key="user.id" :user="user" @delete-user="deleteUser" />
 
       </table>
 
@@ -87,6 +88,15 @@ export default {
     },
     prevPage:function() {
       if(this.currentPage > 1) this.currentPage--;
+    },
+    deleteUser(user) {
+      let decision = confirm("Are you sure?")
+      if (decision === true) {
+        this.$store.dispatch('deleteUser', user)
+            .catch(error => {
+              alert(error)
+            })
+      }
     }
   }
 }

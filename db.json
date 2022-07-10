@@ -49,14 +49,6 @@
       "price": 558.23
     },
     {
-      "id": "00057cba-e8c4-43fa-b0de-1b522c588f4f",
-      "name": "Stacie Leblanc",
-      "company": "NEBULEAN",
-      "email": "stacieleblanc@nebulean.com",
-      "quantity": 21,
-      "price": 446.89
-    },
-    {
       "id": "34ca647a-3ec1-4f60-b539-b94c365463ad",
       "name": "Candy Morris",
       "company": "KOZGENE",
@@ -2073,14 +2065,6 @@
       "price": 292.26
     },
     {
-      "id": "f75224a0-2ba9-41a0-861e-f36781907000",
-      "name": "Amie Mcmillan",
-      "company": "STOCKPOST",
-      "email": "amiemcmillan@stockpost.com",
-      "quantity": 11,
-      "price": 752.79
-    },
-    {
       "id": "23006f89-a66a-4222-8520-620f519a97ed",
       "name": "Charity Austin",
       "company": "EPLOSION",
@@ -2823,14 +2807,6 @@
       "email": "caserose@enaut.com",
       "quantity": 23,
       "price": 623.48
-    },
-    {
-      "id": "00259c6f-6526-4c02-8776-99ffb44b2954",
-      "name": "Powers Herrera",
-      "company": "OVIUM",
-      "email": "powersherrera@ovium.com",
-      "quantity": 17,
-      "price": 468.18
     },
     {
       "id": "8372f0f7-7dfe-4cb9-924d-fbce22c09404",
@@ -6977,14 +6953,6 @@
       "price": 61.63
     },
     {
-      "id": "0aad52d8-9f05-4efb-8f83-96dd5cd0cff5",
-      "name": "Gilda Price",
-      "company": "SUSTENZA",
-      "email": "gildaprice@sustenza.com",
-      "quantity": 38,
-      "price": 707.21
-    },
-    {
       "id": "9a5b8be5-2632-48a4-b75d-840cb9311a16",
       "name": "Julia Vargas",
       "company": "ZILLANET",
@@ -8801,14 +8769,6 @@
       "price": 811.04
     },
     {
-      "id": "00643aa9-3053-4af9-919b-811ccbd33c14",
-      "name": "Atkins Pugh",
-      "company": "CUBICIDE",
-      "email": "atkinspugh@cubicide.com",
-      "quantity": 49,
-      "price": 317.97
-    },
-    {
       "id": "63814bb2-2058-425d-894d-b9f0b9511dc8",
       "name": "Fry Booker",
       "company": "GLEAMINK",
@@ -8927,14 +8887,6 @@
       "email": "cindyriddle@zentility.com",
       "quantity": 46,
       "price": 616.4
-    },
-    {
-      "id": "00b823b7-3e63-4a4d-b9c9-225cd7540d37",
-      "name": "Adkins Cleveland",
-      "company": "VALPREAL",
-      "email": "adkinscleveland@valpreal.com",
-      "quantity": 8,
-      "price": 549.54
     },
     {
       "id": "bae3dd0a-98ac-4b5e-abd9-286e9b237cb3",
@@ -9281,14 +9233,6 @@
       "price": 407.53
     },
     {
-      "id": "c964cf04-b8c0-4015-b31e-11d1577a383d",
-      "name": "",
-      "company": "",
-      "email": "",
-      "quantity": 0,
-      "price": 0
-    },
-    {
       "id": "6d1bfb39-9243-4e9e-a07a-baeb08721069",
       "name": "",
       "company": "",
@@ -9353,28 +9297,20 @@
       "price": 0
     },
     {
-      "id": "05623e7a-fe85-4452-ae65-b70940d609c7",
-      "name": "Julianna Grefkowicz",
-      "company": "qaz",
-      "email": "cantarellaa00@gmail.com",
-      "quantity": 1,
-      "price": 2
-    },
-    {
-      "id": "10782e41-7c6b-42bf-adc9-c5b677c38400",
-      "name": "",
-      "company": "",
-      "email": "",
-      "quantity": 0,
-      "price": 0
-    },
-    {
       "id": "5d853fba-dc47-4358-9bdb-22bf0fe54225",
       "name": "Julianna Grefkowicz",
       "company": "",
       "email": "cantarellaa00@gmail.com",
       "quantity": 0,
       "price": 0
+    },
+    {
+      "id": "7295d355-02d5-4544-bcfa-3ba0bd18edbf",
+      "name": "Julianna Grefkowicz",
+      "company": "qqqq",
+      "email": "cantarellaa00@gmail.com",
+      "quantity": 1,
+      "price": 1
     }
   ]
 }

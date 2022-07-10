@@ -6,6 +6,7 @@
     <td> {{ user.email }}</td>
     <td> {{ user.quantity }}</td>
     <td> {{ user.price }}</td>
+    <td @click="buttonDelete"> X </td>
   </tr>
 </template>
 
@@ -14,6 +15,11 @@ export default {
   name: 'SingleUser',
   props: {
     user: Object
+  },
+  methods: {
+    buttonDelete() {
+      this.$emit('delete-user', this.user)
+    }
   }
 
 }

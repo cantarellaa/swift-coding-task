@@ -15,5 +15,8 @@ export default {
     },
     postUser(user) {
         return apiClient.post('users', user)
+    },
+    deleteUser (id) {
+        return apiClient.delete(`/users/${id}`)
     }
 }
