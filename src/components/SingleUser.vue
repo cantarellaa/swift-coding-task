@@ -1,32 +1,20 @@
 <template>
-  <div class="single-user">
-    <div> {{ user.id }}</div>
-    <div> {{ user.name }}</div>
-    <div> {{ user.company }}</div>
-    <div> {{ user.email }}</div>
-    <div> {{ user.quantity }}</div>
-    <div> {{ user.price }}</div>
-  </div>
+  <tr class="single-user">
+    <td> {{ user.id }}</td>
+    <td> {{ user.name }}</td>
+    <td> {{ user.company }}</td>
+    <td> {{ user.email }}</td>
+    <td> {{ user.quantity }}</td>
+    <td> {{ user.price }}</td>
+  </tr>
 </template>
 
 <script>
 export default {
   name: 'SingleUser',
-  data() {
-    return {
-      user: {
-        id: 1,
-        name: 'John Doe',
-        company: 'Company Name',
-        email: 'john@company.com',
-        quantity: '5',
-        price: '49.90'
-      }
-    }
+  props: {
+    user: Object
   }
-  // props: {
-  //   msg: String
-  // }
 
 }
 </script>

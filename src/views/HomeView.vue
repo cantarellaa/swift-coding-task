@@ -1,6 +1,20 @@
 <template>
   <div class="home">
-    <SingleUser />
+    <table id="users-table">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>E-mail</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+
+      <SingleUser v-for="user in users" :key="user.id" :user="user" />
+
+      </thead>
+    </table>
   </div>
 </template>
 
@@ -12,6 +26,72 @@ export default {
   name: 'HomeView',
   components: {
     SingleUser
+  },
+  data() {
+    return {
+      users: [
+        {
+          id: 1,
+          name: 'John Doe',
+          company: 'Company Name',
+          email: 'john@company.com',
+          quantity: '5',
+          price: '49.90'
+        },
+        {
+          id: 1,
+          name: 'John Doe',
+          company: 'Company Name',
+          email: 'john@company.com',
+          quantity: '5',
+          price: '49.90'
+        },
+        {
+          id: 1,
+          name: 'John Doe',
+          company: 'Company Name',
+          email: 'john@company.com',
+          quantity: '5',
+          price: '49.90'
+        },
+        {
+          id: 1,
+          name: 'John Doe',
+          company: 'Company Name',
+          email: 'john@company.com',
+          quantity: '5',
+          price: '49.90'
+        }
+      ]
+    }
   }
 }
 </script>
+
+<style scoped>
+  .home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+
+  #users-table {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #users-table td, #users-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #users-table tr:nth-child(even){background-color: #f2f2f2;}
+  #users-table tr:hover {background-color: #ddd;}
+
+  #users-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #8904aa;
+    color: white;
+  }
+</style>
