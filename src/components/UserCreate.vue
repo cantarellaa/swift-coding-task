@@ -46,6 +46,7 @@
 
 <script>
   import { v4 as uuidv4 } from 'uuid'
+  import UserService from '@/services/UserService.js'
 
   export default {
     data () {
@@ -62,8 +63,17 @@
     },
     methods: {
       onSubmit() {
-        this.user.id = uuidv4()
-        console.log("User:", this.user)
+        const user = {
+          ...this.user,
+          id: uuidv4()
+        }
+        UserService.postUser(user)
+        .then(() => {
+          this.$store.commit('ADD_USER', user)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
       }
     }
   }

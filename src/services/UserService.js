@@ -12,5 +12,8 @@ const apiClient = axios.create({
 export default {
     getUsers() {
         return apiClient.get('/users')
+    },
+    postUser(user) {
+        return apiClient.post('users', user)
     }
 }
