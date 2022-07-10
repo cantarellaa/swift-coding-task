@@ -11,16 +11,18 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+button {
+  width: 20%;
+  background-color: #8904aa;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+button:hover {
+  background-color: #5f0275;
 }
 </style>

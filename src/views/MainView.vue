@@ -1,7 +1,9 @@
 <template>
   <div>
     <user-create></user-create>
-    <user-list></user-list>
+
+    <button @click="visible = !visible">Show Table</button>
+    <user-list v-if="visible"></user-list>
   </div>
 </template>
 
@@ -14,7 +16,11 @@ export default {
   components: {
     UserCreate,
     UserList,
-
+  },
+  data() {
+    return {
+      visible: false
+    }
   }
 }
 </script>

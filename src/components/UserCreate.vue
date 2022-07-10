@@ -119,16 +119,5 @@ input[type=text], input[type=number] {
 
 button {
   width: 50%;
-  background-color: #8904aa;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px auto;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #5f0275;
 }
 </style>
