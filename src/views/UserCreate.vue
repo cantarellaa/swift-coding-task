@@ -45,23 +45,26 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      user: {
-        id: 0,
-        name: '',
-        company: '',
-        email: '',
-        quantity: 0,
-        price: 0
+  import { v4 as uuidv4 } from 'uuid'
+
+  export default {
+    data () {
+      return {
+        user: {
+          id: '',
+          name: '',
+          company: '',
+          email: '',
+          quantity: 0,
+          price: 0
+        }
+      }
+    },
+    methods: {
+      onSubmit() {
+        this.user.id = uuidv4()
+        console.log("User:", this.user)
       }
     }
-  },
-  methods: {
-    onSubmit() {
-      console.log("User:", this.user)
-    }
   }
-}
 </script>
