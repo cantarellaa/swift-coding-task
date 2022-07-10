@@ -1,3 +1,5 @@
+<!-- This file displays all the data to the browser, namely displays the user table from the db as well as sorts and
+ paginates the table. -->
 <template>
   <div>
     <user-create></user-create>
@@ -32,74 +34,74 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import SingleUser from '@/components/SingleUser.vue'
-import UserCreate from "@/components/UserCreate"
+  // @ is an alias to /src
+  import SingleUser from '@/components/SingleUser.vue'
+  import UserCreate from "@/components/UserCreate"
 
-export default {
-  name: 'UserList',
-  components: {
-    SingleUser,
-    UserCreate
-  },
-  data() {
-    return {
-      currentSort:'id',
-      currentSortDir:'asc',
-      visible: false,
-      pageSize:20,
-      currentPage:1
-    }
-  },
-  created() {
-    this.$store.dispatch('fetchUsers')
-      .catch(error => {
-        alert(error)
-      })
-  },
-  computed: {
-    users() {
-      return this.$store.state.users
+  export default {
+    name: 'UserList',
+    components: {
+      SingleUser,
+      UserCreate
     },
-    sortedUsers:function() {
-      return this.users.slice(0).sort((a,b) => {
-        let modifier = 1;
-        if(this.currentSortDir === 'desc') modifier = -1;
-        if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
-        if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
-        return 0;
-      }).filter((row, index) => {
-        let start = (this.currentPage-1)*this.pageSize;
-        let end = this.currentPage*this.pageSize;
-        if(index >= start && index < end) return true;
-      });
-    }
-  },
-  methods: {
-    sort:function(s) {
-      //if s == current sort, reverse
-      if(s === this.currentSort) {
-        this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
+    data() {
+      return {
+        currentSort:'id',
+        currentSortDir:'asc',
+        visible: false,
+        pageSize:20,
+        currentPage:1
       }
-      this.currentSort = s;
     },
-    nextPage:function() {
-      if((this.currentPage*this.pageSize) < this.users.length) this.currentPage++;
+    created() {
+      this.$store.dispatch('fetchUsers')
+        .catch(error => {
+          alert(error)
+        })
     },
-    prevPage:function() {
-      if(this.currentPage > 1) this.currentPage--;
+    computed: {
+      users() {
+        return this.$store.state.users
+      },
+      sortedUsers:function() {
+        return this.users.slice(0).sort((a,b) => {
+          let modifier = 1;
+          if(this.currentSortDir === 'desc') modifier = -1;
+          if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+          if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+          return 0;
+        }).filter((row, index) => {
+          let start = (this.currentPage-1)*this.pageSize;
+          let end = this.currentPage*this.pageSize;
+          if(index >= start && index < end) return true;
+        });
+      }
     },
-    deleteUser(user) {
-      let decision = confirm("Are you sure?")
-      if (decision === true) {
-        this.$store.dispatch('deleteUser', user)
-            .catch(error => {
-              alert(error)
-            })
+    methods: {
+      sort:function(s) {
+        //if s == current sort, reverse
+        if(s === this.currentSort) {
+          this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
+        }
+        this.currentSort = s;
+      },
+      nextPage:function() {
+        if((this.currentPage*this.pageSize) < this.users.length) this.currentPage++;
+      },
+      prevPage:function() {
+        if(this.currentPage > 1) this.currentPage--;
+      },
+      deleteUser(user) {
+        let decision = confirm("Are you sure?")
+        if (decision === true) {
+          this.$store.dispatch('deleteUser', user)
+              .catch(error => {
+                alert(error)
+              })
+        }
       }
     }
   }
-}
 </script>
 
 <style scoped>

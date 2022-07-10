@@ -1,3 +1,4 @@
+<!-- This file displays the single user table data. -->
 <template>
   <tr class="single-user">
     <td> {{ user.id }}</td>

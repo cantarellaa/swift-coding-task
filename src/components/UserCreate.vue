@@ -1,3 +1,4 @@
+<!-- A form to create new users, with validation. -->
 <template>
   <div class="form-container">
 
@@ -119,38 +120,38 @@
 </script>
 
 <style scoped>
-.user-form {
-  display: grid;
-  /*grid-template-columns: [labels] auto [controls] 1fr;*/
-  grid-auto-flow: row;
-  grid-gap: .8em;
-  padding: 1.2em;
-}
-.user-form > label  {
-  grid-column: labels;
-  grid-row: auto;
-}
-.user-form > input,
-.user-form > button {
-  grid-column: controls;
-  grid-row: auto;
-  border: none;
-  padding: 1em;
-}
-input[type=text], input[type=number] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+  .user-form {
+    display: grid;
+    /*grid-template-columns: [labels] auto [controls] 1fr;*/
+    grid-auto-flow: row;
+    grid-gap: .8em;
+    padding: 1.2em;
+  }
+  .user-form > label  {
+    grid-column: labels;
+    grid-row: auto;
+  }
+  .user-form > input,
+  .user-form > button {
+    grid-column: controls;
+    grid-row: auto;
+    border: none;
+    padding: 1em;
+  }
+  input[type=text], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
-button {
-  width: 50%;
-}
-.error {
-  color: red;
-}
+  button {
+    width: 50%;
+  }
+  .error {
+    color: red;
+  }
 </style>

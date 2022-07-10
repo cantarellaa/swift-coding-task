@@ -1,3 +1,4 @@
+<!-- Vuex store file, handling all db actions. -->
 import { createStore } from 'vuex'
 import UserService from "@/services/UserService.js"
 
