@@ -3,15 +3,15 @@
     <table id="users-table">
       <thead>
       <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Company</th>
-        <th>E-mail</th>
-        <th>Quantity</th>
-        <th>Price</th>
+        <th @click="sort('id')">#</th>
+        <th @click="sort('name')">Name</th>
+        <th @click="sort('company')">Company</th>
+        <th @click="sort('email')">E-mail</th>
+        <th @click="sort('quantity')">Quantity</th>
+        <th @click="sort('price')">Price</th>
       </tr>
 
-      <SingleUser v-for="user in users" :key="user.id" :user="user" />
+      <SingleUser v-for="user in sortedUsers" :key="user.id" :user="user" />
 
       </thead>
     </table>
@@ -27,6 +27,12 @@ export default {
   components: {
     SingleUser
   },
+  data() {
+    return {
+      currentSort:'id',
+      currentSortDir:'asc',
+    }
+  },
   created() {
     this.$store.dispatch('fetchUsers')
       .catch(error => {
@@ -36,7 +42,25 @@ export default {
   computed: {
     users() {
       return this.$store.state.users
+    },
+    sortedUsers:function() {
+      return this.users.slice(0).sort((a,b) => {
+        let modifier = 1;
+        if(this.currentSortDir === 'desc') modifier = -1;
+        if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+        if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+        return 0;
+      })
     }
+  },
+  methods: {
+    sort:function(s) {
+      //if s == current sort, reverse
+      if(s === this.currentSort) {
+        this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
+      }
+      this.currentSort = s;
+    },
   }
 }
 </script>
