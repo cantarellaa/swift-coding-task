@@ -4,53 +4,57 @@
     <form class="user-form" @submit.prevent="onSubmit">
 
       <div>
-        <label>Name</label>
+        <label>Name *</label>
         <input
             v-model="user.name"
             type="text"
             placeholder="John Doe"
         >
+        <div class="error" v-if="v$.user.name.$error">Name field is required.</div>
       </div>
 
       <div>
-        <label>Company</label>
+        <label>Company *</label>
         <input
             v-model="user.company"
             type="text"
             placeholder="Company Name"
         />
+        <div class="error" v-if="v$.user.company.$error">Company field is required.</div>
       </div>
 
       <div>
-        <label>E-mail</label>
+        <label>E-mail *</label>
         <input
             v-model="user.email"
             type="text"
             placeholder="john@company.com"
         />
+        <div class="error" v-if="v$.user.email.$error">Email field has an error.</div>
       </div>
 
       <div>
-        <label>Quantity</label>
+        <label>Quantity *</label>
         <input
             v-model="user.quantity"
             type="number"
             placeholder="1"
         />
+        <div class="error" v-if="v$.user.quantity.$error">Quantity field has an error.</div>
       </div>
 
       <div>
-        <label>Price</label>
+        <label>Price *</label>
         <input
             v-model="user.price"
             type="number"
             placeholder="100"
         />
+        <div class="error" v-if="v$.user.price.$error">Price field has an error.</div>
       </div>
 
       <button type="submit">Submit</button>
     </form>
-
   </div>
 </template>
 
@@ -82,11 +86,11 @@
           quantity: {
             required,
             integer,
-            notNegative: minValue(0) },
+            notNegative: minValue(1) },
           price: {
             required,
             decimal,
-            notNegative: minValue(0) },
+            notNegative: minValue(1) },
         }
       }
     },
@@ -145,5 +149,8 @@ input[type=text], input[type=number] {
 
 button {
   width: 50%;
+}
+.error {
+  color: red;
 }
 </style>
