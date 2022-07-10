@@ -21,6 +21,7 @@
 <script>
 // @ is an alias to /src
 import SingleUser from '@/components/SingleUser.vue'
+import axios from 'axios'
 
 export default {
   name: 'UserList',
@@ -29,41 +30,17 @@ export default {
   },
   data() {
     return {
-      users: [
-        {
-          id: 1,
-          name: 'John Doe',
-          company: 'Company Name',
-          email: 'john@company.com',
-          quantity: '5',
-          price: '49.90'
-        },
-        {
-          id: 1,
-          name: 'John Doe',
-          company: 'Company Name',
-          email: 'john@company.com',
-          quantity: '5',
-          price: '49.90'
-        },
-        {
-          id: 1,
-          name: 'John Doe',
-          company: 'Company Name',
-          email: 'john@company.com',
-          quantity: '5',
-          price: '49.90'
-        },
-        {
-          id: 1,
-          name: 'John Doe',
-          company: 'Company Name',
-          email: 'john@company.com',
-          quantity: '5',
-          price: '49.90'
-        }
-      ]
+      users: null
     }
+  },
+  created() {
+    axios.get('http://localhost:3000/users')
+    .then(response => {
+      this.users = response.data
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 }
 </script>
