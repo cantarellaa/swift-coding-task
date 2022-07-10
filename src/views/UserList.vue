@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="users">
     <table id="users-table">
       <thead>
       <tr>
@@ -23,7 +23,7 @@
 import SingleUser from '@/components/SingleUser.vue'
 
 export default {
-  name: 'HomeView',
+  name: 'UserList',
   components: {
     SingleUser
   },
@@ -69,10 +69,11 @@ export default {
 </script>
 
 <style scoped>
-  .home {
+  .users {
   display: flex;
   flex-direction: column;
   align-items: center;
+    margin-top: 5rem;
   }
 
   #users-table {
