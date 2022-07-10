@@ -56,10 +56,13 @@
 
 <script>
   import { v4 as uuidv4 } from 'uuid'
+  import useValidate from '@vuelidate/core'
+  import { required, email, integer, decimal, minValue } from '@vuelidate/validators'
 
   export default {
     data () {
       return {
+        v$: useValidate(),
         user: {
           id: '',
           name: '',
@@ -70,19 +73,42 @@
         }
       }
     },
+    validations() {
+      return {
+        user: {
+          name: { required },
+          company: { required },
+          email: { required, email },
+          quantity: {
+            required,
+            integer,
+            notNegative: minValue(0) },
+          price: {
+            required,
+            decimal,
+            notNegative: minValue(0) },
+        }
+      }
+    },
     methods: {
       onSubmit() {
-        const user = {
+          const user = {
           ...this.user,
           id: uuidv4()
         }
-        this.$store.dispatch('createUser', user)
-          .then(() => {
-            alert("User created successfully!")
-          })
-        .catch(error => {
-          alert(error)
-        })
+        this.v$.$validate()
+        if (!this.v$.$error) {
+          this.$store.dispatch('createUser', user)
+              .then(() => {
+                alert("User created successfully!")
+              })
+              .catch(error => {
+                alert(error)
+              })
+        }
+        else {
+          alert('Form failed validation')
+        }
       }
     }
   }
