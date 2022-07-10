@@ -4,7 +4,7 @@ import UserList from '../views/UserList.vue'
 const routes = [
   {
     path: '/',
-    name: 'user list',
+    name: 'UserList',
     component: UserList
   },
 ]
